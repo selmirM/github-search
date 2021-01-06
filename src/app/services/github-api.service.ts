@@ -7,7 +7,7 @@ export class GithubApiService {
 
   constructor(private http: HttpClient) { }
 
-  getGitHub() {
-    return this.http.get("https://api.github.com/search/users?q=ensar");
+  getGit({searchItem, searchBy}) {
+    return this.http.get(`https://api.github.com/search/${searchBy}?q=${searchItem}`);
   }
 }

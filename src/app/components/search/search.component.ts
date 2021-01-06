@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { GithubApiService } from 'src/app/services/github-api.service';
 
 @Component({
   selector: 'app-search',
@@ -8,11 +9,11 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 })
 export class SearchComponent implements OnInit {
 
-
+  searchResult: [] = [];
   searchOptions: string[] = ["users", "topics"];
 
   searchGroupForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private githubApiScv: GithubApiService ,private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.searchGroupForm = this.formBuilder.group(
@@ -24,7 +25,10 @@ export class SearchComponent implements OnInit {
   }
 
   searchGithub() {
-    
+    this.githubApiScv.getGit(this.searchGroupForm.value)
+    .subscribe(res => {
+      console.log(res);
+    });
   }
 
 }

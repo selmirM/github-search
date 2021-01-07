@@ -1,3 +1,4 @@
 <div class="container">
-  <app-search></app-search>
+  <app-search (searchResult)="searchResults"></app-search>
+  <app-result results="searchResults"></app-result>
 </div>

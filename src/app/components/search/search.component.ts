@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { SearchResult } from 'src/app/models/search-result';
 import { GithubApiService } from 'src/app/services/github-api.service';
 
 @Component({
@@ -8,8 +9,9 @@ import { GithubApiService } from 'src/app/services/github-api.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  
+  @Output() searchResult = new EventEmitter<SearchResult>();
 
-  searchResult: [] = [];
   searchOptions: string[] = ["users", "topics"];
 
   searchGroupForm: FormGroup;
@@ -25,10 +27,10 @@ export class SearchComponent implements OnInit {
   }
 
   searchGithub() {
-    this.githubApiScv.getGit(this.searchGroupForm.value)
-    .subscribe(res => {
-      console.log(res);
-    });
+      this.githubApiScv.getGit(this.searchGroupForm.value)
+      .subscribe(res => {
+        this.searchResult.emit(res);
+      });
   }
 
 }

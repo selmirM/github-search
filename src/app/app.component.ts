@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SearchResult } from './models/search-result';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'github-search';
+  searchResults: SearchResult;
+
+  
 }

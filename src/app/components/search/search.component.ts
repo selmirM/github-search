@@ -10,7 +10,7 @@ import { GithubApiService } from 'src/app/services/github-api.service';
 })
 export class SearchComponent implements OnInit {
   
-  @Output() searchResult = new EventEmitter<SearchResult>();
+  searchResult: SearchResult
 
   searchOptions: string[] = ["users", "topics"];
 
@@ -29,7 +29,7 @@ export class SearchComponent implements OnInit {
   searchGithub() {
       this.githubApiScv.getGit(this.searchGroupForm.value)
       .subscribe(res => {
-        this.searchResult.emit(res);
+        this.searchResult = res;
       });
   }
 

@@ -1,4 +1,4 @@
 <div class="container">
-  <app-search (searchResult)="searchResults"></app-search>
-  <app-result results="searchResults"></app-result>
+  <app-search (searchResult)="searchResultsEvent($event)" #data></app-search>
+  <app-result  [users]="data.searchResult?.items"></app-result>
 </div>

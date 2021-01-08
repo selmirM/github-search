@@ -1,2 +1,14 @@
-<p>result works!</p>
-<div class="" *ngIf="results">test</div>
+<hr>
+<div class="row" *ngIf="users">
+    <div class="col-sm-3 ml-5 mb-3" *ngFor="let user of users">
+        <div class="card" style="width: 18rem;" >
+            <img class="card-img-top" src="{{user.avatar_url}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{user.login}}</h5>
+                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p> -->
+                <a href="{{user.html_url}}" class="btn btn-primary" target="_blank">Visit {{user.login}} profile</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -10,11 +10,11 @@ import { SearchComponent } from '../search/search.component';
 })
 export class ResultComponent implements OnInit {
   constructor(private resultScv: ResultService) { }
-  @Input() users: SearchComponent
+  users: SearchResult
 
   ngOnInit(): void {
     this.resultScv.cast.subscribe(result => {
-      this.users = result?.items;
+      this.users = result;
     })
   }
 

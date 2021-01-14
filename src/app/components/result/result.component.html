@@ -1,6 +1,6 @@
 <hr>
 <div class="row" *ngIf="users">
-    <div class="col-sm-3 ml-5 mb-3" *ngFor="let user of users">
+    <div class="col-sm-3 ml-5 mb-3" *ngFor="let user of users?.items">
         <div class="card" style="width: 18rem;" >
             <img class="card-img-top" src="{{user.avatar_url}}" alt="Card image cap">
             <div class="card-body">

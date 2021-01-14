@@ -8,9 +8,4 @@ import { SearchResult } from './models/search-result';
 })
 export class AppComponent {
   title = 'github-search';
-  searchResults: SearchResult;
-
-  searchResultsEvent(data) {
-    this.searchResults = data;
-  }
 }
